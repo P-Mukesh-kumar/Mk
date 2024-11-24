@@ -8,7 +8,7 @@ const path = require('path');
 
 const app = express();
 const PORT = 5000;
-app.use(express.static(path.join(__dirname, 'build')));
+
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
@@ -47,9 +47,6 @@ app.post('/send-email', (req, res) => {
 });
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 // Start server
 app.listen(PORT, () => {
